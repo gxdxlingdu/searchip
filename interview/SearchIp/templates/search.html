@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{% static 'searchIp/js/jquery-2.2.2.js' %}"></script>
+    <script src="{% static 'searchIp/js/bootstrap.js' %}"></script>
+    <script src="{% static 'searchIp/js/search.js' %}"></script>
+
+    <link href="{% static 'searchIp/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'searchIp/css/search.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h4 style="width:100px;margin:5px auto">历史纪录</h4>
+    <table class="table table-bordered history">
+        <thead>
+            <tr>
+                <td>用户IP</td>
+                <td>用户IP地理位置</td>
+                <td>所查IP</td>
+                <td>所查IP地理位置</td>
+            </tr>
+        </thead>
+        <tbody class="tb1">
+
+         {% for x in datas %}
+             <tr>
+                 <td>{{ x.userip }}</td>
+                 <td>{{ x.useraddress }}</td>
+                 <td>{{ x.ip }}</td>
+                 <td>{{ x.address}}</td>
+             </tr>
+
+         {% endfor %}
+
+        </tbody>
+    </table>
+
+<div class="content">
+    <div id="search">
+        <span id="myIp" style="display: none"></span> <!--本地ip--->
+        <span id="myAddress" style="display: none"></span><!--本地位置--->
+        <input type="text" class="form-control" id="ip" name="ip"
+               autoComplete='off' placeholder="请输入要查询的IP">
+    </div>
+
+    <table class="table table-bordered search-tb" style="display: none">
+        <thead>
+            <tr>
+                <td>本机IP</td>
+                <td>本机IP地理位置</td>
+                <td>所查IP</td>
+                <td>所查IP地理位置</td>
+            </tr>
+        </thead>
+        <tbody class="tb2">
+        </tbody>
+    </table>
+</div>
+
+</body>
+
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script>
+    $("#myIp").text(returnCitySN["cip"])
+    $("#myAddress").text(returnCitySN["cname"])
+</script>
+
+</html>

@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.content{
+    width:800px;
+    margin:330px auto 0;
+}
+
+.history{
+    width:800px;
+    margin:10px auto 0;
+    text-align: center;
+}
+.history tbody td{
+    padding:3px !important;
+    vertical-align: middle !important;
+}
+
+#search{
+    width: 300px;
+    height:36px;
+    margin: 15px auto;
+}
+
+.search-tb{
+    width:800px;
+    text-align: center;
+}
+.search-tb td{
+    vertical-align: middle !important;
+}
